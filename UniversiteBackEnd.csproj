@@ -7,4 +7,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="UniversiteDomain\UseCases\EtudiantUseCases\Delete\" />
+      <Folder Include="UniversiteDomain\UseCases\EtudiantUseCases\Get\" />
+      <Folder Include="UniversiteDomain\UseCases\EtudiantUseCases\Update\" />
+    </ItemGroup>
+
 </Project>
