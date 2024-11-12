@@ -7,9 +7,6 @@ namespace UniversiteDomain.UseCases.EtudiantUseCases.Create;
 
 public class CreateEtudiantUseCase(IEtudiantRepository etudiantRepository)
 {
-    private readonly IEtudiantRepository etudiantRepository;
-
-    
     public async Task<Etudiant> ExecuteAsync(string numEtud, string nom, string prenom, string email)
     {
         var etudiant = new Etudiant{NumEtud = numEtud, Nom = nom, Prenom = prenom, Email = email};

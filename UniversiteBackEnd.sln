@@ -1,8 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversiteBackEnd", "UniversiteBackEnd.csproj", "{F895B40F-482B-4ABD-9045-A74714D9323A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversiteDomain", "UniversiteDomain\UniversiteDomain.csproj", "{1CEA0503-E2CD-4BC8-B3E0-49FA6AD408FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{D98369A7-47F9-47B5-97EF-B6E48151291A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataProviders", "DataProviders", "{D08B0A74-E249-4ECD-B152-1FAAAAA37BAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntryPoints", "EntryPoints", "{8CE34548-EB32-4184-834A-53BB3B778C35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{AD0DDC99-C452-4BE9-91E1-C563E0D36B21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversiteDomainUnitTests", "UniversiteDomainUnitTests\UniversiteDomainUnitTests.csproj", "{2B1CE255-19A6-4310-B1E4-374A2E201F3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,13 +18,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F895B40F-482B-4ABD-9045-A74714D9323A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F895B40F-482B-4ABD-9045-A74714D9323A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F895B40F-482B-4ABD-9045-A74714D9323A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F895B40F-482B-4ABD-9045-A74714D9323A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1CEA0503-E2CD-4BC8-B3E0-49FA6AD408FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1CEA0503-E2CD-4BC8-B3E0-49FA6AD408FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CEA0503-E2CD-4BC8-B3E0-49FA6AD408FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CEA0503-E2CD-4BC8-B3E0-49FA6AD408FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B1CE255-19A6-4310-B1E4-374A2E201F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B1CE255-19A6-4310-B1E4-374A2E201F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B1CE255-19A6-4310-B1E4-374A2E201F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B1CE255-19A6-4310-B1E4-374A2E201F3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2B1CE255-19A6-4310-B1E4-374A2E201F3C} = {AD0DDC99-C452-4BE9-91E1-C563E0D36B21}
+		{1CEA0503-E2CD-4BC8-B3E0-49FA6AD408FF} = {D98369A7-47F9-47B5-97EF-B6E48151291A}
 	EndGlobalSection
 EndGlobal
