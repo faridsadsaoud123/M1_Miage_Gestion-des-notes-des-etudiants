@@ -36,15 +36,15 @@ namespace UniversiteDomain.UseCases.NoteUseCases
             var nouvelleNote = new Note
             {
                 valeur = valeurNote,
-                etud = etudiantId,
-                u = ueId
+                EtudiantId = etudiantId,
+                UeId = ueId
             };
 
             var noteCreee = await noteRepository.CreateAsync(nouvelleNote);
 
             // Mise à jour de la liste des notes de l'étudiant
-            etudiant.Notes ??= new List<Note>();
-            etudiant.Notes.Add(noteCreee);
+            etudiant.NotesObtenues ??= new List<Note>();
+            etudiant.NotesObtenues.Add(noteCreee);
 
             // Mise à jour de l'entité Étudiant dans le repository
             await etudiantRepository.UpdateAsync(etudiant);

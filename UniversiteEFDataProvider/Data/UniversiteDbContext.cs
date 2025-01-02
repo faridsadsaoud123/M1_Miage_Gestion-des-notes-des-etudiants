@@ -24,6 +24,59 @@ public class UniversiteDbContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // Propriétés de la table Etudiant
+        // Clé primaire
         base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<Etudiant>()
+            .HasKey(e => e.Id);
+        // ManyToOne vers parcours
+        modelBuilder.Entity<Etudiant>()
+            .HasOne(e => e.ParcoursSuivi)
+            .WithMany(p => p.Inscrits);
+        // OneToMany vers Note
+        modelBuilder.Entity<Etudiant>()
+            .HasMany(e => e.NotesObtenues)
+            .WithOne(n => n.Etudiant);
+        
+        // Propriétés de la table Parcours
+        // Clé primaire
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<Parcours>()
+            .HasKey(p => p.Id);
+        // ManyToOne vers Etudiant
+        modelBuilder.Entity<Parcours>()
+            .HasMany(p => p.Inscrits)
+            .WithOne(e => e.ParcoursSuivi);
+        // ManyToMany vers Ue
+        modelBuilder.Entity<Parcours>()
+            .HasMany(p => p.UesEnseignees)
+            .WithMany(ue => ue.EnseigneeDans);
+
+        // Propriétés de la table Ue
+        // Clé primaire
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<Ue>()
+            .HasKey(ue => ue.Id);
+        // ManyToMany vers Parcours
+        modelBuilder.Entity<Ue>()
+            .HasMany(ue => ue.EnseigneeDans)
+            .WithMany(p => p.UesEnseignees);
+        // OneToMany vers Note
+        modelBuilder.Entity<Ue>()
+            .HasMany(ue => ue.Notes)
+            .WithOne(n => n.Ue);
+        
+        // Propriétés de la table Note
+        // Clé primaire composite
+        modelBuilder.Entity<Note>()
+            .HasKey(n => new { n.EtudiantId, n.UeId });
+        // ManyToOne vers Etudiant
+        modelBuilder.Entity<Note>()
+            .HasOne(n => n.Etudiant)
+            .WithMany(e => e.NotesObtenues);
+        // ManyToOne vers Ue
+        modelBuilder.Entity<Note>()
+            .HasOne(n => n.Ue)
+            .WithMany(ue => ue.Notes);
     }
 }

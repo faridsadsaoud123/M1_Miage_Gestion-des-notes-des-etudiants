@@ -32,15 +32,15 @@ namespace UniversiteDomainUnitTests
             Note noteAvant = new Note
             {
                 valeur = valeurNote,
-                etud = etudiantId,
-                u = ueId
+                EtudiantId = etudiantId,
+                UeId = ueId
             };
 
             Note noteFinale = new Note
             {
                 valeur = valeurNote,
-                etud = etudiantId,
-                u = ueId
+                EtudiantId = etudiantId,
+                UeId = ueId
             };
 
             // Configuration des mocks
@@ -59,8 +59,8 @@ namespace UniversiteDomainUnitTests
 
 
             Assert.That(noteCree.valeur, Is.EqualTo(noteFinale.valeur));
-            Assert.That(noteCree.etud, Is.EqualTo(noteFinale.etud));
-            Assert.That(noteCree.u, Is.EqualTo(noteFinale.u));
+            Assert.That(noteCree.EtudiantId, Is.EqualTo(noteFinale.EtudiantId));
+            Assert.That(noteCree.UeId, Is.EqualTo(noteFinale.UeId));
         }
     }
 }

@@ -3,9 +3,9 @@
 public class Note
 {
     public float valeur { get; set; }
-    public Etudiant etudiant { get; set; }
-    public Ue ue { get; set; }
-    public long etud { get; set; }
-    public long u { get; set; }
+    public Etudiant Etudiant { get; set; }
+    public Ue Ue { get; set; }
+    public long EtudiantId { get; set; }
+    public long UeId { get; set; }
 
 }
