@@ -12,13 +12,13 @@ namespace UniversiteDomainUnitTests
 {
     public class UeUnitTests
     {
-        private Mock<UeRepository> mockUeRepository;
+        private Mock<IUeRepository> mockUeRepository;
         private Mock<IRepositoryFactory> mockFactory;
 
         [SetUp]
         public void Setup()
         {
-            mockUeRepository = new Mock<UeRepository>();
+            mockUeRepository = new Mock<IUeRepository>();
             mockFactory = new Mock<IRepositoryFactory>();
         }
 
@@ -62,7 +62,7 @@ namespace UniversiteDomainUnitTests
         UesEnseignees = new List<Ue>() // Assurez que la liste est vide
     };
 // Simulation des faux repositories
-    var mockUeRepository = new Mock<UeRepository>();
+    var mockUeRepository = new Mock<IUeRepository>();
     var mockParcoursRepository = new Mock<IParcoursRepository>();
 
     // Simuler la recherche d'une UE existante

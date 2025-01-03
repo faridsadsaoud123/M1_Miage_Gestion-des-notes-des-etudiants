@@ -24,8 +24,8 @@ public class CreateNoteUseCase
         var note = new Note
         {
             valeur = val,
-            etud = etudiantId,
-            u = ueId
+            EtudiantId = etudiantId,
+            UeId = ueId
         };
         return await ExecuteAsync(note);
     }
@@ -50,23 +50,23 @@ public class CreateNoteUseCase
         }
 
         // Vérifie si l'UE existe
-        var ue = await repositoryFactory.UeRepository().FindAsync(note.u);
+        var ue = await repositoryFactory.UeRepository().FindAsync(note.UeId);
         if (ue == null)
         {
-            throw new EtudiantNotFoundException($"UE with ID {note.u} does not exist.");
+            throw new EtudiantNotFoundException($"UE with ID {note.UeId} does not exist.");
         }
 
         // Vérifie si l'étudiant existe
-        var etudiant = await repositoryFactory.EtudiantRepository().FindAsync(note.etud);
+        var etudiant = await repositoryFactory.EtudiantRepository().FindAsync(note.EtudiantId);
         if (etudiant == null)
         {
-            throw new UeNotFoundException($"Student with ID {note.etud} does not exist.");
+            throw new UeNotFoundException($"Student with ID {note.EtudiantId} does not exist.");
         }
 
         // Vérifie si l'étudiant est inscrit au parcours contenant l'UE
-        if (etudiant.ParcoursSuivi == null && etudiant.ParcoursSuivi.UesEnseignees.All(u=>u.Id!=note.u))
+        if (etudiant.ParcoursSuivi == null && etudiant.ParcoursSuivi.UesEnseignees.All(u=>u.Id!=note.UeId))
         {
-            throw new InscriptionException($"Student with ID {note.etud} n'est pas inscrit à l'UE {note.u}.");
+            throw new InscriptionException($"Student with ID {note.EtudiantId} n'est pas inscrit à l'UE {note.UeId}.");
         }
 
         
@@ -74,10 +74,10 @@ public class CreateNoteUseCase
 
         // Vérifie si l'étudiant a déjà une note pour cette UE
         var existingNote = await repositoryFactory.NoteRepository()
-            .FindByConditionAsync(n => n.etud == note.etud && n.u == note.u);
+            .FindByConditionAsync(n => n.EtudiantId == note.EtudiantId && n.UeId == note.UeId);
         if (existingNote != null)
         {
-            throw new AlreadyHaveNoteException($"Student with ID {note.etud} already has a note for UE {note.u}.");
+            throw new AlreadyHaveNoteException($"Student with ID {note.EtudiantId} already has a note for UE {note.UeId}.");
         }
     }
 

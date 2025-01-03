@@ -5,7 +5,7 @@ public interface IRepositoryFactory
     IParcoursRepository ParcoursRepository();
     IEtudiantRepository EtudiantRepository();
 
-    UeRepository UeRepository();
+    IUeRepository UeRepository();
 
     INoteRepository NoteRepository();
     // Méthodes de gestion de la dadasource

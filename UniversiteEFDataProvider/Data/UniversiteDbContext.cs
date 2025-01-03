@@ -79,4 +79,8 @@ public class UniversiteDbContext : DbContext
             .HasOne(n => n.Ue)
             .WithMany(ue => ue.Notes);
     }
+    public DbSet <Parcours>? Parcours { get; set; }
+    public DbSet <Etudiant>? Etudiants { get; set; }
+    public DbSet <Ue>? Ues { get; set; }
+    public DbSet <Note>? Notes { get; set; }
 }
